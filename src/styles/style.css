@@ -1,0 +1,31 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+@import "font-awesome/css/font-awesome.css";
+
+.employee-view-card{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto ;
+    gap: 10px;
+    margin: 60px;
+}
+
+.employee-view-table{
+    margin: 60px;
+}
+
+.employee-view-btn{
+    /* display: flex; */
+    /* align-items: center; */
+    text-align: right;
+    margin-right: 5%;
+}
+
+.employee-create{
+    margin-top: 30px;
+}
+
+@media only screen and (max-width:980px) {
+    .employee-view-card{
+        display: flex;
+        flex-direction: column;
+    }
+}
