@@ -1,5 +1,5 @@
 .employee-form{
-    width: 450px;
+    width: 500px;
     height: auto;
     padding: 30px;
     border-radius: 20px;
@@ -10,6 +10,21 @@
 .employee-form   table > tbody > tr > td > input,
 .employee-form   table > tbody > tr > td > select,
 .employee-form   table > tbody > tr > td > label{
+    margin-top: 10px;
     margin-bottom: 20px;
     padding-right: 20px;
+}
+
+.employee-form span{
+    color: red;
+    display: none;
+}
+
+.employee-form input:invalid ~ span{
+    display: block;
+}
+
+form:invalid button{
+    opacity: 0.3;
+    pointer-events: none;
 }

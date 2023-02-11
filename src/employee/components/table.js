@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {useNavigate} from "react-router-dom";
 import { bindActionCreators } from 'redux';
 import { deleteEmployee } from '../action'; 
+import Swal from 'sweetalert2'
 const IMAGE_PLACEHOLDER = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
 
 function EmployeeTable({data,deleteEmployee}) {
@@ -13,8 +14,26 @@ function EmployeeTable({data,deleteEmployee}) {
         });
     }
     const handleDeleteEmployee = (id) =>{
-        deleteEmployee(id)
-        navigate("/employee/list")
+        Swal.fire({
+            title: '',
+            text: 'Do you want to delete this employee',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'Yes delete!',
+          }).then((value) =>{
+            if(value.isConfirmed){
+              Swal.fire(
+                'Deleted!',
+                'Employee Delete Successfully',
+                'success'
+              ).then((value) =>{
+                if(value){
+                  deleteEmployee(id)
+                  navigate("/employee/list")
+                }
+              })
+            }
+          })
     }
   return (
     <div className="employee-view-table">

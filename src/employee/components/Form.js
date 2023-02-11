@@ -57,31 +57,57 @@ function EmployeeForm({insertEmployee,getEmployeeById,employeeDetail,updateEmplo
   return (
    <div className='employee-form container'>
         <div className=''>
+            <form onSubmit={handleSubmit}>
             <table>
                 <thead>
                     <th colSpan={2} className='text-center'><h3  style={{marginBottom:'30px'}}>{FORM_NAME}</h3></th>
                 </thead>
                 <tbody>
                     <tr >
-                        <td><label>First Name</label></td>
-                        <td><input  type="text" class="form-control" onChange={(e) => setFirstName(e.target.value)} value={firstName} /></td>
+                        <td width={'150px'}><label>First Name</label></td>
+                        <td>
+                            <input  
+                                type="text" 
+                                className="form-control" 
+                                onChange={(e) => setFirstName(e.target.value)} 
+                                value={firstName} 
+                                required
+                                pattern={'^[A-Za-z0-9]{6,10}$'} />
+                            <span>Firstname should be minimum 6 and maximam 10 character and Cannot be Empty</span>
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Last Name</label></td>
-                        <td> <input type="text" class="form-control" onChange={(e) => setLastName(e.target.value)}  value={lastName} /></td>
+                        <td>
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                onChange={(e) => setLastName(e.target.value)}  
+                                value={lastName}
+                                required
+                                pattern={'^[A-Za-z0-9]{6,10}$'} />
+                            <span>Lastname should be minimum 6 and maximam 10 character and Cannot be Empty</span>
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Email</label></td>
-                        <td> <input type="text" class="form-control" onChange={(e) => setEmail(e.target.value)} value={email} /></td>
+                        <td>
+                            <input 
+                                type="email" 
+                                className="form-control" 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                value={email} />
+                            <span className='text-danger' >It should be a valid email address</span>
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Phone</label></td>
-                        <td> <input type="text" class="form-control" onChange={(e) => setPhone(e.target.value)} value={phone} /></td>
+                        <td> <input type="text" className="form-control" onChange={(e) => setPhone(e.target.value)} value={phone} /></td>
                     </tr>
                     <tr>
                         <td><label>Gender</label></td>
                         <td>
-                        <select class="form-select" aria-label="Default select example" onChange={(e) => setGender(e.target.value)} value={gender}>
+                        <select className="form-select" aria-label="Default select example" onChange={(e) => setGender(e.target.value)} value={gender}>
                             <option selected>Select Gender</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
@@ -91,12 +117,13 @@ function EmployeeForm({insertEmployee,getEmployeeById,employeeDetail,updateEmplo
                     <tr>
                         <td></td>
                         {
-                        id ? (<td align={"right"}><button className='btn btn-primary w-50' onClick={handleEdit}>Edit</button></td>)
-                            :(<td align={"right"}><button className='btn btn-primary w-50' onClick={handleSubmit}>Add</button></td>) 
+                        id ? (<td align={"right"}><button className='btn btn-primary w-50 edit-btn' onClick={handleEdit}>Edit</button></td>)
+                            :(<td align={"right"}><button type="submit" className='btn btn-primary w-50' >Add</button></td>) 
                         }
                     </tr>
                 </tbody>
             </table>
+            </form>
         </div>
    </div>
   )

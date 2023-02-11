@@ -16,11 +16,11 @@ function Card({id,img,name,email,mobile,gender,deleteEmployee}) {
   }
   const handleDeleteEmployee = (id) =>{
     Swal.fire({
-      title: 'Error!',
+      title: '',
       text: 'Do you want to delete this employee',
       icon: 'error',
       showCancelButton: true,
-      confirmButtonText: 'Yes delete it!',
+      confirmButtonText: 'Yes delete!',
     }).then((value) =>{
       if(value.isConfirmed){
         Swal.fire(
