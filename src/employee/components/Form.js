@@ -20,7 +20,7 @@ function EmployeeForm({insertEmployee,getEmployeeById,employeeDetail,updateEmplo
         if(id){
             getEmployeeById(id)
         }
-    },[id])
+    },[getEmployeeById,id])
 
     useEffect(() =>{
         setFirstName(employeeDetail.first_name)
@@ -102,7 +102,16 @@ function EmployeeForm({insertEmployee,getEmployeeById,employeeDetail,updateEmplo
                     </tr>
                     <tr>
                         <td><label>Phone</label></td>
-                        <td> <input type="text" className="form-control" onChange={(e) => setPhone(e.target.value)} value={phone} /></td>
+                        <td> 
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                onChange={(e) => setPhone(e.target.value)} 
+                                value={phone} 
+                                pattern={'^[0-9]+$'}
+                                />
+                             <span className='text-danger' >Mobile number should be valid</span>
+                        </td>
                     </tr>
                     <tr>
                         <td><label>Gender</label></td>

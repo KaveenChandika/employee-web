@@ -4,10 +4,8 @@ import { bindActionCreators } from "redux";
 import { getEmployeeDetails } from "../action";
 import EmployeeGrid from "../components/grid";
 import EmployeeTable from "../components/table";
-import {useNavigate} from "react-router-dom";
 
 function Employee({ getEmployeeDetails,employeeDetails }) {
-  const navigate = useNavigate();
     const [viewStatus,setViewStatus] = useState(true);
     useEffect(() => {
         getEmployeeDetails();
