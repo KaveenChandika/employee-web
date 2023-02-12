@@ -108,7 +108,7 @@ function EmployeeForm({insertEmployee,getEmployeeById,employeeDetail,updateEmplo
                                 className="form-control" 
                                 onChange={(e) => setPhone(e.target.value)} 
                                 value={phone} 
-                                pattern={'^[0-9]{10}$'}
+                                pattern={'^(?:0|94)[0-9]{9}$'}
                                 />
                              <span className='text-danger' >Mobile number should be valid</span>
                         </td>
